@@ -1,0 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Grenze:wght@200;300;500&family=Sansita+Swashed:wght@400;600;700&display=swap');
+:root {
+    /* Colores */
+    --color-lightbeig: #F6F1CE;
+    --color-beige: #E6D2A9;
+    --color-light-brown: #896949;
+    --color-brown: #775036;
+    /* Fuentes */
+    --font-titulos: 'Sansita Swashed', cursive;
+    --font-text: 'Grenze', serif;
+}

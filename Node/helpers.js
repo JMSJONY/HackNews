@@ -2,14 +2,14 @@ const path = require('path');
 const uuid = require('uuid');
 const sharp = require('sharp');
 const crypto = require('crypto');
-const sgMail = require('@sendgrid/mail');
+//const sgMail = require('@sendgrid/mail');
 const { format } = require('date-fns');
 const { ensureDir, unlink } = require('fs-extra');
 
 const { UPLOADS_DIRECTORY } = process.env;
 const uploadsDir = path.join(__dirname, UPLOADS_DIRECTORY);
 
-sgMail.setApiKey(process.env.SENDGRID_API_KEY);
+//sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
 
 //Formatear fecha
@@ -63,7 +63,7 @@ function generateRandomString(length) {
 
 
 //Enviar email
-async function sendMail({ to, subject, body }) {
+/* async function sendMail({ to, subject, body }) {
     try {
         const msg = {
             to,
@@ -80,7 +80,7 @@ async function sendMail({ to, subject, body }) {
     } catch (error) {
         throw new Error('Error enviando email');
     }
-}
+} */
 
 
 //Validar esquema
@@ -100,6 +100,5 @@ module.exports = {
     savePhoto,
     deletePhoto,
     generateRandomString,
-    sendMail,
     validate,
 };

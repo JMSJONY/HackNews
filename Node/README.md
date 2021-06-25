@@ -24,10 +24,10 @@
 - **GET**    - [/users/validate/:registrationCode] - Valida un usuario recién registrado. ✅
 - **POST**   - [/users/login] - Logea un usuario retornando un token.✅
 - **PUT**    - [/users/:idUser] - Edita el nombre completo, el email, dirreción, biografía o el avatar de un usuario.✅
-- **PUT**    - [/users/:idUser/password] - Edita la contraseña de un usuario.
-- **PUT**    - [/users/password/recover] - Envia un correo con el código de reseteo de contraseña a un email.
-- **PUT**    - [/users/password/reset] - Cambia la contraseña de un usuario.
-- **DELETE** - [/users/:idUser] - Borra un usuario.
+- **PUT**    - [/users/:idUser/password] - Edita la contraseña de un usuario.✅
+- **PUT**    - [/users/password/recover] - Envia un correo con el código de reseteo de contraseña a un email.✅
+- **PUT**    - [/users/password/reset] - Cambia la contraseña de un usuario.✅
+- **DELETE** - [/users/:idUser] - Borra un usuario.✅
 
 
 

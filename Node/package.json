@@ -2,7 +2,7 @@
     "name": "Node",
     "version": "1.0.0",
     "description": "-- Se trata de una página web donde los usuarios publican noticias",
-    "main": "helpers.js",
+    "main": "index.js",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
         "dev": "nodemon server.js"

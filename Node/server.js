@@ -20,6 +20,10 @@ const {
     newUser,
     validateUsers,
     loginUser,
+    editPassword,
+    recoverUser,
+    recoverPass,
+    deleteUser
 } = require('./controllers/users');
 
 
@@ -36,8 +40,22 @@ app.post('/users/login', loginUser);
  // Cogemos informacion de un usuario
 app.get('/users/:idUser',authUser, usersExists, getUser);
 
+// Editamos la contraseña de un usuario.
+app.put('/users/:idUser/password',authUser, usersExists, editPassword);
 
-//logger
+// Enviamos un codigo de recuperación de cuenta
+app.put('/users/password/recover', recoverUser);
+
+// Cambiamos contraseña despues de recibir el email de recuperación
+app.put('/users/password/reset', recoverPass);
+
+// Borramos un usuario.
+app.delete('/users/:idUser', authUser, usersExists, deleteUser)
+
+
+
+
+/* logger */
 app.use(morgan('dev'));
 
 //traduce el body y lo transforma en un objeto JS

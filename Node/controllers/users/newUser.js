@@ -1,6 +1,6 @@
-const getDB = require('../../ddbb/db.js');
-const { validate, generateRandomString, sendMail, formatDate } = require('../../helpers.js');
-const { newUserSchema } = require('../../schemas/newUserSchema')
+const getDB = require('../../ddbb/db');
+const { validate, generateRandomString, sendMail, formatDate } = require('../../helpers');
+const { newUserSchema } = require('../../schemas')
 
 const newUser = async (req, res, next) => {
     let connection;

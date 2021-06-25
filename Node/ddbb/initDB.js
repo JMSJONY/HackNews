@@ -85,7 +85,6 @@ const main = async() => {
             CREATE TABLE entries_coments (
                 id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
                 coment TEXT
-                
             );
         `);
 
@@ -126,17 +125,9 @@ const main = async() => {
                 INSERT INTO users(createdAt, email, password, name, active, role)
                 VALUES (
                     "${formatDate(new Date())}",
-                     "pevv2001@hotmail.com", 
-                     SHA2("${process.env.ADMIN_PASSWORD}", 512), 
-                     "Paty", 
-                     true,
-                     "admin"
-                ),
-                (
-                    "${formatDate(new Date())}",
                      "jmsjonathan92@gmail.com", 
-                     SHA2("${process.env.ADMIN_PASSWORD1}", 512), 
-                     "Jony", 
+                     SHA2("${process.env.ADMIN_PASSWORD}", 512), 
+                     "JONY", 
                      true,
                      "admin"
                 )

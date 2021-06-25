@@ -1,4 +1,4 @@
-#HACK NEWS 
+# HACK NEWS 
 
 -- Se trata de una página web donde los usuarios publican noticias
 
@@ -6,7 +6,7 @@
 
 -- Cada usuario registrado puede, calificar una noticia y comentar en la noticia.
 
-##EndPoints de noticias 
+## EndPoints de noticias 
 - **GET**    - [/entries] - Retorna el listado de las noticias.
 - **GET**    - [/entries/:idEntry] - Retorna una noticia en concreto.
 - **POST**   - [/entries] - Crea una noticia nueva.
@@ -18,12 +18,12 @@
 - **DELETE** - [/entries/:idEntry] - Borra una noticia.
 - **DELETE** - [/entries/:idEntry/photos/:idPhoto] - Elimina una foto de una noticia.   
 
-##EndPoints de usuarios
-- **GET**    - [/users/:idUser] - Retorna información de un usuario en concreto.
-- **POST**   - [/users] - Crea un usuario pendiente de activar.
-- **GET**    - [/users/validate/:registrationCode] - Valida un usuario recién registrado. 
-- **POST**   - [/users/login] - Logea un usuario retornando un token.
-- **PUT**    - [/users/:idUser] - Edita el nombre completo, el email, dirreción, biografía o el avatar de un usuario.
+## EndPoints de usuarios
+- **GET**    - [/users/:idUser] - Retorna información de un usuario en concreto. ✅
+- **POST**   - [/users] - Crea un usuario pendiente de activar. ✅
+- **GET**    - [/users/validate/:registrationCode] - Valida un usuario recién registrado. ✅
+- **POST**   - [/users/login] - Logea un usuario retornando un token.✅
+- **PUT**    - [/users/:idUser] - Edita el nombre completo, el email, dirreción, biografía o el avatar de un usuario.✅
 - **PUT**    - [/users/:idUser/password] - Edita la contraseña de un usuario.
 - **PUT**    - [/users/password/recover] - Envia un correo con el código de reseteo de contraseña a un email.
 - **PUT**    - [/users/password/reset] - Cambia la contraseña de un usuario.

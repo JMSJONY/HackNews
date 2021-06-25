@@ -7,14 +7,34 @@ const fileUpload = require('express-fileupload');
 const { PORT } = process.env;
 
 //Todo Middlewares
-
+const authUser = require('./middlewares/authUser');
+const usersExists = require('./middlewares/usersExists');
 
 
 //Todo Controladores entradas
 
 
 //Todo Controladores usuarios
+const { 
+    getUser,
+    newUser,
+    validateUsers,
+    loginUser,
+} = require('./controllers/users');
 
+
+ /* endPoints Usuarios */
+// Creamos un nuevo usuario
+app.post('/users', newUser);
+
+// Validamos un usuario nuevo.
+app.get('/users/validate/:registrationCode', validateUsers);
+
+// Logueamos a un usuario
+app.post('/users/login', loginUser);
+
+ // Cogemos informacion de un usuario
+app.get('/users/:idUser',authUser, usersExists, getUser);
 
 
 //logger
@@ -25,7 +45,6 @@ app.use(express.json());
 
 //leer body con formato form data
 app.use(fileUpload());
-
 
 
 //Todo peticiones

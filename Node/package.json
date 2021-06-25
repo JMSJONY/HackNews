@@ -1,7 +1,7 @@
 {
-    "name": "node",
-    "description": "Se trata de una página web donde los usuarios publican noticias",
+    "name": "Node",
     "version": "1.0.0",
+    "description": "-- Se trata de una página web donde los usuarios publican noticias",
     "main": "helpers.js",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
@@ -10,14 +10,6 @@
     "keywords": [],
     "author": "",
     "license": "ISC",
-    "devDependencies": {
-        "eslint": "^7.28.0",
-        "chalk": "^4.1.1",
-        "faker": "^5.5.3",
-        "morgan": "^1.10.0",
-        "nodemon": "^2.0.7",
-        "prettier": "^2.3.1"
-    },
     "dependencies": {
         "@sendgrid/mail": "^7.4.5",
         "date-fns": "^2.22.1",
@@ -30,5 +22,13 @@
         "mysql2": "^2.2.5",
         "sharp": "^0.28.3",
         "uuid": "^8.3.2"
+    },
+    "devDependencies": {
+        "chalk": "^4.1.1",
+        "eslint": "^7.28.0",
+        "faker": "^5.5.3",
+        "morgan": "^1.10.0",
+        "nodemon": "^2.0.7",
+        "prettier": "^2.3.1"
     }
 }

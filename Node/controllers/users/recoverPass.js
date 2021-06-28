@@ -1,5 +1,5 @@
-const getDB = require('../../ddbb/db');
-const { generateRandomString, sendMail } = require('../../helpers');
+const getDB = require('../../BBDD/database');
+const { formatDate } = require('../../helpers');
 
 const recoverPass = async (req, res, next) => {
     let connection;
@@ -7,50 +7,33 @@ const recoverPass = async (req, res, next) => {
     try {
         connection = await getDB();
 
-        const { email } = req.body;
-        
-        if(!email) {
+        const { recoverCode, newPassword } = req.body;
+
+        if(!recoverCode || !newPassword) {
             const error = new Error('Faltan campos');
             error.httpStatus = 400;
             throw error;
         };
 
-        // Comprobamos que existe el email en la bbdd
+        // Confirmamos que el usuario tenga el codigo de recuperación
         const [user] = await connection.query(`
-            SELECT id FROM users WHERE email = ?
-        `, [email]);
+            SELECT id FROM users WHERE recoverCode = ?
+        `, [recoverCode]);
 
         if(user.length < 1) {
-            const error = new Error('NO hay ningun usuario con ese email')
+            const error = new Error('Codigo de recuperación incorrecto');
             error.httpStatus = 404;
             throw error;
         };
 
-        // generamos un codigo de recuperacion, por que suponemos que existe
-        const recoverCode = generateRandomString(20);
-
-        // Creamos el body con el mensaje
-        const emailBody = `
-            Se solicito un cambio de contraseña para el usuario registrado con este email.
-
-            El código de recuperación es: ${recoverCode}.
-        `;
-
-        // Enviamos el email.
-        await sendMail({
-            to: email, 
-            subject: 'Códgio de recuperación',
-            body: emailBody,
-        });
-
-        // Agregamos el codigo de recuperación
+        // Actualizamos la contraseña del usuario
         await connection.query(`
-            UPDATE users SET recoverCode = ? WHERE email = ?
-        `, [recoverCode, email])
+            UPDATE users SET password = SHA2(?, 512), recoverCode = NULL, modifiedAt = ? WHERE id = ?
+        `, [newPassword, formatDate(new Date()), user[0].id]);
 
         res.send({
             status: 'ok',
-            message: 'Email enviado'
+            message: 'Contraseña actualizada.'
         });
 
     } catch (error) {
